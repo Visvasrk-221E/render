@@ -18,6 +18,7 @@ def home():
 
 @app.route('/is_admin/<username>')
 def is_admin(username):
+	admins = ["Visvasrk", "visvasrk", "visvasrk001", "Visvasrk001", "Visvasrk221e", "visvasrk221e", "Visvasrk-221E"]
 	if username in admins:
 		return "<h1>Yes, {username} is an admin of Framework 221E</h1>"
 	else:
