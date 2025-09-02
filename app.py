@@ -60,7 +60,7 @@ def fwd_module_1():
 	return render_template('flask_web_development/module1.html')
 
 @app.route('/courses/flask_web_development/module2')
-def fwd_module2():
+def fwd_module_2():
 	return render_template('flask_web_development/module2.html')
 
 
