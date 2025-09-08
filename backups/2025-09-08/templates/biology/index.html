@@ -74,13 +74,9 @@
         </div>
         <div class="projects-grid">
         {% for topic, description in topics.items() %}
-            <div class="project-card" style="word-wrap:break-word;overflow-wrap:break-work;">
+            <div class="project-card">
                 <div class="project-content">
-                {% if '_' in topic %}
-                    <h3>{{ topic| replace('_', ' ') | title }}</h3>
-                {% else %}
-                	<h3>{{ topic|title }}</h3>
-                {% endif %}
+                    <h3>{{ topic|title }}</h3>
                     <div class="project-stats">
                         <span class="project-stat"><i class="fas fa-dna"></i> Grade 12 </span>
                     </div>

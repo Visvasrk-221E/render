@@ -1,6 +1,5 @@
-from flask import Flask, render_template, url_for, redirect, Response
+from flask import Flask, render_template, url_for, redirect
 from datetime import datetime
-import time
 
 app = Flask(__name__)
 
@@ -16,7 +15,6 @@ def home():
 @app.route('/subjects/biology')
 def biology():
 	topics = {"biotechnology" : "This topic is about unit nine of grade 12 biology book. Both Biotechnology, Principles and Processes and its Applications are included.",
-	"organisms_and_populations" : "This topic is about how different organisms interact with each other in a population, the factors affecting it and study of ecology.",
 
 	}
 	topic_count = len(topics)
@@ -30,11 +28,8 @@ def biology_topic(topic):
 def biotechnology():
 	return render_template('biology/biotechnology.html')
 
-@app.route('/subjects/biology/organisms_and_populations')
-def organisms_and_populations():
-	return render_template('biology/organisms_and_populations.html')
 
 if __name__ == "__main__":
-	app.run(host="0.0.0.0", port=5000, debug=True,threaded=True)
+	app.run(host="0.0.0.0", port=5000, debug=True)
 
 

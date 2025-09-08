@@ -1,0 +1,181 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+        <!-- hero section -->
+        <section id="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="text-primary">Framework-221E</h1>
+                    <div class="typewriter">
+                        <span id="typewriter-text"></span>
+                        <span class="cursor-blink">|</span>
+                    </div>
+                    <p class="hero-description">Welcome to the world! This is a place where reality is manufactured for the sake of social good.</p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn primary">Projects</a>
+                        <a href="#contact" class="btn secondary">Contact Us</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="terminal">
+                        <div class="terminal-header">
+                            <div class="terminal-buttons">
+                                <span class="terminal-button close"></span>
+                                <span class="terminal-button minimize"></span>
+                                <span class="terminal-button maximize"></span>
+                            </div>
+                            <div class="terminal-title">system status</div>
+                        </div>
+                        <div class="terminal-body">
+                            <div class="line"><span class="prompt">shellcode:~$</span><span class="command">sudo server status</span></div>
+                            <div class="ascii-art">
+[ Node : Framework-221E ]
+[ Operating System : Parrot OS ]
+[ Server Time : {{ time }} ]
+[ Integrity : ********** ]
+[ Deployment : render.com ]
+                            </div>
+                            <div class="line"><span class="prompt">shellcode:~$</span><span class="command blink"> _</span></div>
+                        </div>
+                    </div>
+                </div>          
+                <div class="scroll-indicator">
+                    <div class="mouse">
+                        <div class="wheel"></div>
+                    </div>
+                    <div class="arrow">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+        </section>
+            
+    <!-- about section -->
+        <section id="about">
+            <div class="container">
+                <div class="section-header">
+                    <h2>My <span class="accent">Info</span></h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                    	<p> I am <strong>Visvasrk</strong>. I am an enthusiastic person, a programmer, a biology learner, and I have
+                    	 interest in a wide arena of subjects including intelligence analysis and non-ethical hacking. I have seen too
+                    	  much of environmental pollution, people destroying nature, deforestation and inhumane actions of war. I wanted 
+                    	  to have a change, and decided to make it from within. </p>
+                    	<p> With the development of artificial intelligence and lethal autonomous weapon systems, humanity has enhanced 
+                    	the power of self destruction about two folds higher. I am seeking for like minded persons who always think ahead and outside 
+                    	of the systems and has no human bound ethics. I love to live in nature, safeguard Earth, and form a community for that purpose. 
+                    	Born into the act of which is this prototype : Framework 221E.</p> 
+
+                        <div class="about-quote">
+                            <blockquote>"It is possible for us to tell that information has turned into weapon long ago, about 1980s. 
+                            It has now become virtually impossible to detect binary among reality."</blockquote>
+                        </div>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-icon"><i class="fas fa-globe"></i></div>
+                            <div class="stat-number" data-count="3">0</div>
+                            <div class="stat-label">Websites</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon"><i class="fas fa-code"></i></div>
+                            <div class="stat-number" data-count="37">0</div>
+                            <div class="stat-label">Python Programs</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon"><i class="fas fa-book"></i></div>
+                            <div class="stat-number" data-count="238">0</div>
+                            <div class="stat-label">Information Documents</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="framework-about">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Framework <span class="accent">Info</span></h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                    	<p>Framework 221E is an integrated intelligence platform focused on environmental, social, political, 
+                    	open-source, and military domains. It functions as a centralized hub for monitoring global dynamics, 
+                    	mapping instability, and forecasting future risks. The system operates by collecting, analyzing, and 
+                    	correlating information across multiple channels, transforming fragmented signals into coherent 
+                    	assessments.</p>
+                    	<p>In the environmental domain, it tracks resource competition, energy security, climate impacts, and 
+                    	ecological stress points that can drive instability. In the social domain, it monitors influence networks, 
+                    	demographic shifts, and unrest indicators to understand population behavior. Politically, it follows regime 
+                    	stability, policy shifts, and diplomatic alignments to assess state and non-state actors. 
+                    	Through OSINT, it extracts patterns from open chatter, news flows, digital exhaust, and information 
+                    	operations. Militarily, it evaluates force deployments, posture changes, escalation ladders, and the 
+                    	readiness of state and non-state forces.</p>
+                    	<p>The purpose of Framework 221E is not to drown operators in raw information but to deliver situational 
+                    	awareness, anticipate threats, and provide decision superiority. It is designed to help intelligence 
+                    	officers, analysts, and commanders operate with foresight, not hindsight. It is both a strategic lens 
+                    	for the long view and a tactical compass for the immediate fight.</p>
+                        <div class="about-quote">
+                            <blockquote>"In the noise, we find the pattern. In the pattern, we shape the outcome."</blockquote>
+                        </div>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-icon"><i class="fas fa-book-open"></i></div>
+                            <div class="stat-number" data-count="1">0</div>
+                            <div class="stat-label">Subjects</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon"><i class="fas fa-graduation-cap"></i></div>
+                            <div class="stat-number" data-count="0">0</div>
+                            <div class="stat-label">Courses</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon"><i class="fas fa-lock"></i></div>
+                            <div class="stat-number" data-count="0">0</div>
+                            <div class="stat-label">Secrets</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <!-- projects section aka, subjects available in framework 221e-->
+        <section id="projects">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Subjects <span class="accent">Available</span></h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-content">
+                            <h3>Biology</h3>
+                            <div class="project-stats">
+                                <span class="project-stat"><i class="fas fa-dna"></i> Grade 12 </span>
+                            </div>
+                            <p>This is part of class 12 biology, a comprehensive guide along with all the necessary questions 
+                            and notes, documents uploaded. You can access them to enhance your biology skills.</p>
+                            <div class="project-links">
+                                <a href="{{ url_for('biology') }}" class="project-link"><i
+                                        class="fas fa-external-link-alt"></i> View It</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <!-- skills section -->
+    <section id="skills">
+        
+    </section>
+    <!-- contact section -->
+    <section id="contact">
+        
+    </section>
+
+{% endblock %}
