@@ -394,7 +394,7 @@ document.addEventListener('DOMContentLoaded', function () {
     preloader.innerHTML = `
         <div class="preloader-content">
             <div class="logo-text">Framework<span class="accent">-221E</span></div><br>
-            <p class="description-text">Build : 0.1</p>
+            <p class="description-text">Prototype Build...</p><br>
             <div class="loading-bar">
                 <div class="loading-progress"></div>
             </div>

@@ -40,8 +40,8 @@
                 <li><a href="{{ url_for('home') }}">Home</a></li>
                 <li><a href="{{ url_for('home') }}#about">About-Me</a></li>
                 <li><a href="{{ url_for('home') }}#framework-about">About-Framework</a></li>
-                <li><a href="{{ url_for('home') }}#projects">Subjects</a></li>
                 <li><a href="{{ url_for('home') }}#skills">Courses</a></li>
+                <li><a href="{{ url_for('home') }}#projects">Subjects</a></li>
                 <li><a href="{{ url_for('home') }}#contact">Contacts</a></li>
             </ul>
         </nav>
@@ -59,6 +59,30 @@
 <main>
 	{% block content %} {% endblock %}
 </main>
+<footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-text">Framework<span class="accent">-221E</span></span>
+                </div>
+                <div class="footer-links">
+                    <a href="{{ url_for('home') }}#framework-about">About Framework</a>
+                    <a href="{{ url_for('home') }}#projects">Subjects</a>
+                    <a href="{{ url_for('home') }}#skills">Courses</a>
+                    <a href="{{ url_for('home') }}#contact">Contact</a>
+                </div>
+                <div class="footer-social">
+                    <a href="https://github.com/visvasrk-0" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="mailto:visvasrk.221e.2025.org@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 framework-221e. All rights reserved.</p>
+                <p>Built with hardwork and a lot of analysis. CSS and JS source contributor : <a href="https://micr0.dev/">micr0byte <i class="fas fa-external-link-alt"></i></a></p>
+            </div>
+        </div>
+    </footer>
+
 <!-- Script Content Starts Here -->               
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="{{ url_for('static', filename='cryo.js') }}"></script>
