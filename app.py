@@ -1,7 +1,9 @@
 from flask import Flask, render_template, url_for, redirect, Response
 from datetime import datetime
 import time
+import os
 
+port = int(os.environ.get("PORT", 5000))
 app = Flask(__name__)
 
 @app.route('/')
@@ -53,6 +55,6 @@ def cybersec0():
 	return render_template('cybersecurity/cybersec0.html')
 
 if __name__ == "__main__":
-	app.run(host="0.0.0.0", port=5000, debug=True,threaded=True)
+	app.run(host="0.0.0.0", port=port)
 
 
