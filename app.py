@@ -10,29 +10,47 @@ def redirect_to_home():
 
 @app.route('/home')
 def home():
+	subjects = {"biology" : "Topics based on general biology as well as grade 12 biology can be learnt from here.[Grade 12]",
+		"cybersecurity" : "Topics based on cybersecurity, from school to college level or even masters can be learnt from here.[Basics]",
+	}
+	subject_count = len(subjects)
 	crt_time = datetime.now()
-	return render_template('index.html', time=crt_time)
+	return render_template('index.html', time=crt_time, subjects=subjects, subject_count=subject_count)
+
+@app.route('/subjects/<subject>')
+def route_subject(subject):
+	return redirect(url_for('subject'))
 
 @app.route('/subjects/biology')
 def biology():
-	topics = {"biotechnology" : "This topic is about unit nine of grade 12 biology book. Both Biotechnology, Principles and Processes and its Applications are included.",
-	"organisms_and_populations" : "This topic is about how different organisms interact with each other in a population, the factors affecting it and study of ecology.",
+	topics = {
+	"organisms_and_populations" : "This topic is about how different organisms interact with each other in a population, the factors affecting it and study of ecology.[Ecology]",
 
 	}
 	topic_count = len(topics)
 	return render_template('biology/index.html', topics=topics, topic_count=topic_count)
 
+@app.route('/subjects/cybersecurity')
+def cybersecurity():
+	topics = {"cybersec0" : "This is the first step in learning cybersecurity. You are on right path to take the fundamentals, just step right in.[Basics]",}
+	topic_count = len(topics)
+	return render_template('cybersecurity/index.html', topics=topics, topic_count=topic_count)
+
 @app.route('/subjects/biology/<topic>')
 def biology_topic(topic):
 	return redirect(url_for('topic'))
 
-@app.route('/subjects/biology/biotechnology')
-def biotechnology():
-	return render_template('biology/biotechnology.html')
+@app.route('/subjects/cybersecurity/<topic>')
+def cybersecurity_topic(topic):
+	return redirect(url_for('topic'))
 
 @app.route('/subjects/biology/organisms_and_populations')
 def organisms_and_populations():
 	return render_template('biology/organisms_and_populations.html')
+
+@app.route('/subjects/cybersecurity/cybersec0')
+def cybersec0():
+	return render_template('cybersecurity/cybersec0.html')
 
 if __name__ == "__main__":
 	app.run(host="0.0.0.0", port=5000, debug=True,threaded=True)

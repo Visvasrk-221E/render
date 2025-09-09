@@ -139,7 +139,7 @@
                     <div class="about-stats">
                         <div class="stat-item">
                             <div class="stat-icon"><i class="fas fa-book-open"></i></div>
-                            <div class="stat-number" data-count="1">0</div>
+                            <div class="stat-number" data-count="{{ subject_count }}">0</div>
                             <div class="stat-label">Subjects</div>
                         </div>
                         <div class="stat-item">
@@ -327,20 +327,29 @@
                     <div class="section-line"></div>
                 </div>
                 <div class="projects-grid">
+                {% for subject, description in subjects.items() %}  
+                	{% if subject %}
                     <div class="project-card">
                         <div class="project-content">
-                            <h3>Biology</h3>
+                            <h3>{{ subject|title }}</h3>
                             <div class="project-stats">
-                                <span class="project-stat"><i class="fas fa-dna"></i> Grade 12 </span>
+                            {% set parts = description.split('[') %}
+                            {% if parts|length > 1 %}
+                            	{% set inner = parts[1].split(']') %}
+                                <span class="project-stat"><i class="fas fa-dna"></i> {{ inner[0] }}</span>
+                            {% endif %}
                             </div>
-                            <p>This is part of class 12 biology, a comprehensive guide along with all the necessary questions 
-                            and notes, documents uploaded. You can access them to enhance your biology skills.</p>
+                            <p>{{ parts[0] }}</p>
                             <div class="project-links">
-                                <a href="{{ url_for('biology') }}" class="project-link"><i
+                                <a href="{{ url_for('route_subject', subject=subject) }}" class="project-link"><i
                                         class="fas fa-external-link-alt"></i> View It</a>
                             </div>
                         </div>
                     </div>
+                    {% else %}
+                   		<span style="display:none;">
+                   	{% endif %}
+                {% endfor %}
                 </div>
             </div>
         </section>
