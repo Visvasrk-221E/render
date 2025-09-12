@@ -27,14 +27,16 @@ def route_subject(subject):
 def biology():
 	topics = {
 	"organisms_and_populations" : "This topic is about how different organisms interact with each other in a population, the factors affecting it and study of ecology.[Ecology]",
-
 	}
 	topic_count = len(topics)
 	return render_template('biology/index.html', topics=topics, topic_count=topic_count)
 
 @app.route('/subjects/cybersecurity')
 def cybersecurity():
-	topics = {"cybersec0" : "This is the first step in learning cybersecurity. You are on right path to take the fundamentals, just step right in.[Basics]",}
+	topics = {
+	"cybersec0" : "This is the first step in learning cybersecurity. You are on right path to take the fundamentals, just step right in.[Basics]",
+	"basic_tools" : "Know the basic tools of cybersecurity. Learn how to use Nmap, Burpsuite, Telnet, connect with CLI, etc.[Basics, Tools]",
+	}
 	topic_count = len(topics)
 	return render_template('cybersecurity/index.html', topics=topics, topic_count=topic_count)
 
@@ -53,6 +55,23 @@ def organisms_and_populations():
 @app.route('/subjects/cybersecurity/cybersec0')
 def cybersec0():
 	return render_template('cybersecurity/cybersec0.html')
+
+@app.route('/subjects/cybersecurity/basic_tools')
+def basic_tools():
+	tool_dict = {
+		"nmap" : "Network Mapper, shortly known as Nmap, is a command line tool for checking and surfing open ports...[Tools]",
+	}
+	return render_template('cybersecurity/basic_tools.html', tool_dict=tool_dict)
+
+@app.route('/subjects/cybersecurity/basic_tools/<tool_name>')
+def render_basic_tools(tool_name):
+	return redirect(url_for('tool_name'))
+
+
+@app.route('/subjects/cybersecurity/basic_tools/nmap')
+def nmap():
+	return render_template('cybersecurity/basic_tools/nmap.html')
+
 
 if __name__ == "__main__":
 	app.run(host="0.0.0.0", port=port)
