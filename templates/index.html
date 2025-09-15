@@ -12,8 +12,8 @@
                     </div>
                     <p class="hero-description">Welcome to the world! This is a place where reality is manufactured for the sake of social good.</p>
                     <div class="hero-buttons">
-                        <a href="#projects" class="btn primary">Projects</a>
-                        <a href="#contact" class="btn secondary">Contact Us</a>
+                        <a href="{{ url_for('home') }}" class="btn primary">Courses Page</a>
+                        <a href="{{ url_for('dochub') }}" class="btn secondary">DocHub</a>
                     </div>
                 </div>
                 <div class="hero-image">
@@ -78,17 +78,17 @@
                         <div class="stat-item">
                             <div class="stat-icon"><i class="fas fa-globe"></i></div>
                             <div class="stat-number" data-count="3">0</div>
-                            <div class="stat-label">Websites</div>
+                            <div class="stat-label"><a href="{{ url_for('home') }}"><i class="fas fa-external-link-alt"></i> Websites</a></div>
                         </div>
                         <div class="stat-item">
                             <div class="stat-icon"><i class="fas fa-code"></i></div>
                             <div class="stat-number" data-count="37">0</div>
-                            <div class="stat-label">Python Programs</div>
+                            <div class="stat-label"><a href="{{ url_for('home') }}"><i class="fas fa-external-link-alt"></i> My Codes</a></div>
                         </div>
                         <div class="stat-item">
                             <div class="stat-icon"><i class="fas fa-book"></i></div>
-                            <div class="stat-number" data-count="238">0</div>
-                            <div class="stat-label">Information Documents</div>
+                            <div class="stat-number" data-count="{{ docnum }}">0</div>
+                            <div class="stat-label"><a href="{{ url_for('dochub') }}"><i class="fas fa-external-link-alt"></i> Document Hub</a></div>
                         </div>
                     </div>
                 </div>
