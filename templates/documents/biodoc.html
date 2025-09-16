@@ -55,38 +55,56 @@
             <div class="section-line"></div>
         </div>
         <div class="projects-grid">
-        {% for doc in docs %}
+        <h3 class="accent">Unacademy Documents</h3>
+        {% for doc in unacademydocs %}
             <div class="project-card" style="word-wrap:break-word;overflow-wrap:break-work;">
                 <div class="project-content">
-                {% if "[bio]" and "[Unacademy]" and ".pdf" in doc %}
-                    <h3>{{ doc| replace("[bio]", '')| replace("[Unacademy]",'') | replace(".pdf", '') | title }}</h3>
+                    <h3>{{ doc| replace("[bio]", '')| replace("[unacademy]",'') | replace(".pdf", '') | title }}</h3>
                     <div class="project-stats">
                         <span class="project-stat"><i class="fas fa-dna"></i> Biodoc - Unacademy Notes</span>
                     </div>                    
                     <div class="project-links">
                         <a href="{{ url_for('download_file', filename=doc) }}" class="project-link"><i class="fas fa-download"></i> Download</a>
                     </div>                    
-                {% elif "[QB]" and ".pdf" in doc %}
-                    <h3>{{ doc| replace("[bio]", '')| replace("[QB]",'') | replace(".pdf", '') | title }}</h3>
+                </div>
+            </div>
+        {% endfor %}        
+        </div>
+        <div class="projects-grid">
+        <h3 class="accent">Question Banks</h3>        
+        {% for doc in qbdocs %}
+            <div class="project-card" style="word-wrap:break-word;overflow-wrap:break-work;">
+                <div class="project-content">
+                    <h3>{{ doc| replace("[bio]", '')| replace("[qb]",'') | replace(".pdf", '') | title }}</h3>
                     <div class="project-stats">
                         <span class="project-stat"><i class="fas fa-dna"></i> Biodoc - Question Bank</span>
                     </div>                    
                     <div class="project-links">
                         <a href="{{ url_for('download_file', filename=doc) }}" class="project-link"><i class="fas fa-download"></i> Download</a>
-                    </div>                                        
-                {% else %}
-                	<h3>{{ doc|title }}</h3>
-                    <div class="project-stats">
-                        <span class="project-stat"><i class="fas fa-dna"></i> Biodoc - General Notes</span>
-                    </div> 
-                    <div class="project-links">
-                        <a href="{{ url_for('download_file', filename=doc) }}" class="project-link"><i class="fas fa-download"></i> Download</a>
-                    </div>                                   	
-                {% endif %}
+                    </div>                    
                 </div>
             </div>
         {% endfor %}
-        </div>
+        </div>        
+        <div class="projects-grid">
+        <h3 class="accent">General Documents</h3>        
+        {% if not gendocs %}
+        	<p>No documents are posted yet under this session</p>
+        {% endif %}
+        {% for doc in gendocs %}
+            <div class="project-card" style="word-wrap:break-word;overflow-wrap:break-work;">
+                <div class="project-content">
+                    <h3>{{ doc| replace("[bio]", '')| replace("[gen]",'') | replace(".pdf", '') | title }}</h3>
+                    <div class="project-stats">
+                        <span class="project-stat"><i class="fas fa-dna"></i> Biodoc - General Docs</span>
+                    </div>                    
+                    <div class="project-links">
+                        <a href="{{ url_for('download_file', filename=doc) }}" class="project-link"><i class="fas fa-download"></i> Download</a>
+                    </div>                    
+                </div>
+            </div>
+        {% endfor %}
+        </div>                
     </div>
 </section>
 

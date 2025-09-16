@@ -86,14 +86,24 @@ def nmap():
 
 @app.route('/dochub/biodoc')
 def biodoc():
-	docs = [f for f in os.listdir(docsdir) if "[bio]" in f]
-	print(docs)
-	return render_template('documents/biodoc.html',docs=docs)
+	unacademydocs = [f for f in os.listdir(docsdir) if "[bio]" and "[unacademy]" in f]
+	qbdocs = [f for f in os.listdir(docsdir) if "[bio]" and "[qb]" in f]
+	gendocs = [f for f in os.listdir(docsdir) if "[bio]" and "[gen]" in f]
+	doccount = len(unacademydocs) + len(qbdocs) + len(gendocs)
+	return render_template('documents/biodoc.html',unacademydocs=unacademydocs, qbdocs=qbdocs, gendocs=gendocs)
 
 @app.route('/dochub/compdoc')
 def compdoc():
-	docs = [f for f in os.listdir(docsdir) if "[comp]" in f]
-	return render_template('documents/compdoc.html', docs=docs)
+	netdocs = [f for f in os.listdir(docsdir) if "[comp]" and "[net]" in f] #Networking
+	hackdocs = [f for f in os.listdir(docsdir) if "[comp]" and "[hack]" in f] #Hacking
+	pydocs = [f for f in os.listdir(docsdir) if "[comp]" and "[pydoc]" in f] #Python documents and documentations
+	gendocs = [f for f in os.listdir(docsdir) if "[comp]" and "[gen]" in f] # general documents
+	cdocs = [f for f in os.listdir(docsdir) if "[comp]" and "[cdoc]" in f] #C and C++ language documents
+	jsdocs = [f for f in os.listdir(docsdir) if "[comp]" and "[jsdoc]" in f] #Javascript documents
+	javadocs = [f for f in os.listdir(docsdir) if "[comp]" and "[javadoc]" in f] # javadocuments
+	fsdocs = [f for f in os.listdir(docsdir) if "[comp]" and "[fsdoc]" in f] #file systems and os documents
+	doccount = len([f for f in os.listdir(docsdir) if "[comp]" in f])
+	return render_template('documents/compdoc.html', netdocs=netdocs, hackdocs=hackdocs, pydocs=pydocs, gendocs=gendocs, cdocs=cdocs, jsdocs=jsdocs, javadocs=javadocs, fsdocs=fsdocs)
 
 @app.route('/dochub/weapdoc')
 def weapdoc():
