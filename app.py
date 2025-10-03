@@ -38,7 +38,8 @@ def route_subject(subject):
 def biology():
 	docnum = len([f for f in os.listdir(docsdir) if "[bio]" in f])
 	topics = {
-	"organisms_and_populations" : "This topic is about how different organisms interact with each other in a population, the factors affecting it and study of ecology.[Ecology]",
+	"organisms_and_populations" : "This topic is about how different organisms interact with each other in a population, the factors affecting it and study of ecology. Different organisms interact with each other differently. Population growth and the ecosystem, though are very large, these are all small worlds. Think about how diseases spread through different populations. Will they spread more in big population or in a small population? Which population will be fully infected if the infection started in the same time for both the big and small population? Read this lesson to learn more.[Ecology]",
+	"molecular_basis_of_inheritance" : "How do organisms grow? Where are these informations stored? What is inheritance? Does your parents give you some sort of information for your growth? Have you ever wondered when someone says 'You look like your grandmother.'? Everything is routed in molecular biology, your cells and DNA. Explore this chapter to know more. [Biotechnology]",
 	}
 	topic_count = len(topics)
 	return render_template('biology/index.html', topics=topics, topic_count=topic_count, docnum=docnum)
@@ -63,6 +64,10 @@ def cybersecurity_topic(topic):
 @app.route('/subjects/biology/organisms_and_populations')
 def organisms_and_populations():
 	return render_template('biology/organisms_and_populations.html')
+
+@app.route('/subjects/biology/molecular_basis_of_inheritance')
+def molecular_basis_of_inheritance():
+	return render_template('biology/molecular_basis_of_inheritance.html')
 
 @app.route('/subjects/cybersecurity/cybersec0')
 def cybersec0():
@@ -109,6 +114,18 @@ def compdoc():
 def weapdoc():
 	docs = [f for f in os.listdir(docsdir) if "[weap]" in f]
 	return render_template('documents/weapdoc.html', docs=docs)
+
+@app.route('/websites')
+def websites():
+	return render_template('comming_soon.html', title="My Websites", pgdesc="Welcome to my websites page. Here you can find the links to all of my other websites. Currently site under development.")
+
+@app.route('/courses')
+def courses():
+	return render_template('comming_soon.html', title="Courses", pgdesc="Welcome to courses, site currently under development. We will add the courses as soon as possible.")
+
+@app.route('/codes')
+def codes():
+	return render_template('comming_soon.html', title="My Codes", pgdesc="Welcome to my codes. Here you can find all of my codes. Soon I will post them all.")
 
 if __name__ == "__main__":
 	app.run(host="0.0.0.0", port=port)
