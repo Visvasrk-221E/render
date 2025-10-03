@@ -1,0 +1,73 @@
+:root {
+    /* Color scheme - Darkish Blue Theme */
+    --bg-primary: #0a0d1e;      /* deep dark blue */
+    --bg-secondary: #101533;    /* slightly lighter for panels */
+    --bg-tertiary: #1a1f40;     /* cards, secondary containers */
+    --bg-black: #000814;        /* absolute deep navy */
+    
+    --text-primary: #e0e6f1;    /* soft white-blue */
+    --text-secondary: #a0b0d0;  /* muted text */
+    
+    --accent-primary: #3b82f6;  /* vivid darish blue */
+    --accent-secondary: #5fa0f8; 
+    --accent-tertiary: #1e40af; 
+    
+    --success: #4caf50;
+    --warning: #ff9800;
+    --error: #f44336;
+    
+    --terminal-bg: #111733;
+    --terminal-text: #e0e6f1;
+
+    /* Typography */
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-sans: 'Inter', sans-serif;
+
+    /* Spacing */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 2rem;
+    --space-xl: 4rem;
+
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+
+    /* Borders */
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 16px;
+    --border-width: 1px;
+
+    /* Shadows */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.4);
+
+    /* Z-indices */
+    --z-negative: -1;
+    --z-normal: 1;
+    --z-tooltip: 10;
+    --z-fixed: 100;
+    --z-modal: 1000;
+}
+
+/* Light theme variant - light blue feel */
+[data-theme="light"] {
+    --bg-primary: #f0f4ff;       /* soft light blue background */
+    --bg-black: #ffffff;
+    --bg-secondary: #dce6ff;
+    --bg-tertiary: #c4d4ff;
+    
+    --text-primary: #0a1e42;     /* dark navy for readability */
+    --text-secondary: #3b4d75; 
+    
+    --accent-primary: #3b82f6;   /* same darish blue for consistency */
+    --accent-secondary: #5fa0f8;
+    --accent-tertiary: #1e40af; 
+    
+    --terminal-bg: #e8edff;
+    --terminal-text: #0a1e42;
+}
