@@ -19,12 +19,17 @@ def redirect_to_home():
 @app.route('/home')
 def home():
 	docnum = len([f for f in os.listdir(docsdir)])
-	subjects = {"biology" : "Topics based on general biology as well as grade 12 biology can be learnt from here.[Grade 12]",
-		"cybersecurity" : "Topics based on cybersecurity, from school to college level or even masters can be learnt from here.[Basics]",
+	subjects = {
+	"biology" : "Topics based on general biology as well as grade 12 biology can be learnt from here.[Grade 12]",
+	"cybersecurity" : "Topics based on cybersecurity, from school to college level or even masters can be learnt from here.[Basics]",
 	}
-	subject_count = len(subjects)
+	anadomains = {
+	"sec-reports" : "Uncover details and studies about various security reports and current emerging threats. We gather information from the Fortiguard Labs, The Guardian, The Bulletin of Atomic Scientists, and other trust worthy sources. We cover a various range of topics from biosecurity to poverty and health issues, cyberattacks, etc.[Security]",
+	"scene-scape" : "Read about movie like reality based stimulations using AI, which predicts the divergence of current scene and provides the possible scenario in near future. SceneScape constructs just stimulations of what will happen, we are not assuring you that it will happen. We tell that it may happen, be prepared. If you feel bored, read these nightmare stimulations.[Stimulation]",
+	}
+	subject_count = len(subjects) + len(anadomains)
 	crt_time = datetime.now()
-	return render_template('index.html', time=crt_time, subjects=subjects, subject_count=subject_count, docnum=docnum)
+	return render_template('index.html', time=crt_time, subjects=subjects, subject_count=subject_count, docnum=docnum, anadomains=anadomains)
 
 @app.route('/dochub')
 def dochub():
@@ -33,6 +38,10 @@ def dochub():
 @app.route('/subjects/<subject>')
 def route_subject(subject):
 	return redirect(url_for('subject'))
+
+@app.route('/analytical_domains/<anadomain>')
+def route_analytical_domain(anadomain):
+	return redirect(url_for('anadomain'))
 
 @app.route('/subjects/biology')
 def biology():
@@ -52,6 +61,22 @@ def cybersecurity():
 	}
 	topic_count = len(topics)
 	return render_template('cybersecurity/index.html', topics=topics, topic_count=topic_count)
+
+@app.route('/analytical_domains/sec-reports')
+def sec_reports():
+	docnum = len([f for f in os.listdir(docsdir) if "[secreport]" in f])
+	topics = {
+	}
+	topic_count = len(topics)
+	return render_template('secreports/index.html', topics=topics, topic_count=topic_count, docnum=docnum)
+
+@app.route('/analytical_domains/scene-scape')
+def scene_scape():
+	docnum = len([f for f in os.listdir(docsdir) if "[scenescape]" in f])
+	topics = {
+	}
+	topic_count = len(topics)
+	return render_template('scenescape/index.html', topics=topics, topic_count=topic_count, docnum=docnum)
 
 @app.route('/subjects/biology/<topic>')
 def biology_topic(topic):

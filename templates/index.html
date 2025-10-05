@@ -6,7 +6,7 @@
             <div class="container">
             <div class="container">
                 <div class="hero-content">
-                    <h1 class="text-primary">Framework-221E</h1>
+                    <h1 class="text-primary" data-text="Framework-221E">Framework-221E</h1>
                     <div class="typewriter">
                         <span id="typewriter-text"></span>
                         <span class="cursor-blink">|</span>
@@ -143,7 +143,7 @@
                         <div class="stat-item">
                             <div class="stat-icon"><i class="fas fa-book-open"></i></div>
                             <div class="stat-number" data-count="{{ subject_count }}">0</div>
-                            <div class="stat-label">Subjects</div>
+                            <div class="stat-label">Subjects and Domains</div>
                         </div>
                         <div class="stat-item">
                             <div class="stat-icon"><i class="fas fa-graduation-cap"></i></div>
@@ -356,6 +356,40 @@
                 </div>
             </div>
         </section>
+    <!-- Analytical Domain section available in framework 221e-->
+        <section id="analyticaldomains">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Analytical <span class="accent">Domains</span></h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="projects-grid">
+                {% for anadomain, description in anadomains.items() %}  
+                	{% if anadomain %}
+                    <div class="project-card">
+                        <div class="project-content">
+                            <h3>{{ anadomain|title }}</h3>
+                            <div class="project-stats">
+                            {% set parts = description.split('[') %}
+                            {% if parts|length > 1 %}
+                            	{% set inner = parts[1].split(']') %}
+                                <span class="project-stat"><i class="fas fa-lock"></i> {{ inner[0] }}</span>
+                            {% endif %}
+                            </div>
+                            <p>{{ parts[0] }}</p>
+                            <div class="project-links">
+                                <a href="{{ url_for('route_analytical_domain', anadomain=anadomain) }}" class="project-link"><i
+                                        class="fas fa-external-link-alt"></i> View It</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% else %}
+                   		<span style="display:none;">
+                   	{% endif %}
+                {% endfor %}
+                </div>
+            </div>
+        </section>        
 
 <!--hidden-->
 <section id="privacy-demo" class="section" style="display:none;">
