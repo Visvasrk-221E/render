@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alpha Layout Fixed Nav Example</title>
+  <style>
+    /* ==== Dark Theme Variables ==== */
+    :root {
+      --bg-color: #0e1014;
+      --nav-bg: #161920;
+      --content-bg: #1b1e25;
+      --text-color: #e0e0e0;
+      --accent: #4dabf7;
+      --border-color: #2a2d33;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    /* ==== Alpha Box ==== */
+    .alpha-box {
+      display: flex;
+      flex-direction: column;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+
+    /* ==== Alpha Nav ==== */
+    .alpha-nav {
+      background-color: var(--nav-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .alpha-nav h2 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .alpha-nav ul {
+      list-style: none;
+    }
+
+    .alpha-nav li {
+      margin-bottom: 0.6rem;
+    }
+
+    .alpha-nav a {
+      color: var(--text-color);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .alpha-nav a:hover {
+      color: var(--accent);
+    }
+
+    /* ==== Alpha Content ==== */
+    .alpha-content {
+      background-color: var(--content-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 2rem;
+      flex: 1;
+    }
+
+    .alpha-content h1 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .alpha-content section {
+      margin-bottom: 2rem;
+    }
+
+    .alpha-content p {
+      text-align: justify;
+      margin-bottom: 1rem;
+    }
+
+    /* ==== Desktop Layout ==== */
+    @media (min-width: 768px) {
+      .alpha-box {
+        flex-direction: row;
+        align-items: flex-start;
+      }
+
+      .alpha-nav {
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        width: 250px;
+        height: calc(100vh - 2rem);
+        overflow-y: auto;
+        margin-bottom: 0;
+        border-radius: 12px;
+      }
+
+      .alpha-content {
+        margin-right: 270px;
+      }
+    }
+
+    /* ==== Scrollbar Styling (for nav) ==== */
+    .alpha-nav::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .alpha-nav::-webkit-scrollbar-thumb {
+      background-color: var(--border-color);
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="alpha-box">
+    <div class="alpha-nav">
+      <h2>Navigation</h2>
+      <ul>
+        <li><a href="#">Overview</a></li>
+        <li><a href="#">Articles</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Gallery</a></li>
+        <li><a href="#">Team</a></li>
+        <li><a href="#">Resources</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="alpha-content">
+      <h1>Lorem Ipsum Dolor Sit Amet</h1>
+      <section>
+        <h2>Section One</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Integer nec dui in sapien ultrices viverra. Praesent ac orci a nisl malesuada fermentum. Maecenas sed dictum justo. Suspendisse potenti.</p>
+        <p>Aliquam erat volutpat. Suspendisse porta, magna at sagittis suscipit, orci metus porta odio, sit amet bibendum eros augue sed turpis.</p>
+      </section>
+
+      <section>
+        <h2>Section Two</h2>
+        <p>Curabitur gravida quam vel mauris rhoncus, non varius mi suscipit. Nunc luctus viverra erat in accumsan. Sed ac ligula elit. Vestibulum volutpat venenatis commodo. Quisque vel facilisis velit.</p>
+        <p>Phasellus et diam sapien. Integer condimentum, metus ac fermentum bibendum, magna leo cursus neque, ac posuere augue neque in libero.</p>
+      </section>
+
+      <section>
+        <h2>Section Three</h2>
+        <p>Donec efficitur ante sit amet justo cursus tincidunt. Nunc fringilla, turpis eu blandit congue, magna ipsum interdum enim, id blandit urna libero nec orci. Sed at facilisis urna, nec commodo odio.</p>
+        <p>Ut vel orci ac lorem hendrerit tincidunt non et erat. Fusce nec nibh in eros dictum faucibus at ut erat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+      </section>
+    </div>
+  </div>
+</body>
+</html>
