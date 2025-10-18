@@ -1,16 +1,34 @@
+
+#[Initialize]===========================================================================================================
+# Import the necessary modules
+
 from flask import Flask, render_template, url_for, redirect, Response, send_from_directory
+from flask_flatpages import FlatPages
+import markdown
 from datetime import datetime
 import time
 import os
+
+#[Configuration]========================================================================================================
+# Configure the app settings
 
 port = int(os.environ.get("PORT", 5000))
 app = Flask(__name__)
 docsdir = os.path.join(app.static_folder, "documents")
 
+# Configure flat pages
+app.config['FLATPAGES_EXTENSION'] = '.md'
+app.config['FLATPAGES_ROOT'] = 'pages'
+app.config['FLATPAGES_MARKDOWN_EXTENSIONS'] = ['fenced_code', 'codehilite', 'tables', 'toc']
+app.config['FLATPAGES_MARKDOWN_EXTENSION_CONFIGS'] = {
+    'codehilite': {'linenums': False}
+}
 
-@app.route('/dochub/<path:filename>')
-def download_file(filename):
-	return send_from_directory('static/documents', filename, as_attachment=True)
+pages = FlatPages(app)
+
+
+#[Routes]===============================================================================================================
+# Create the roots for the app
 
 @app.route('/')
 def redirect_to_home():
@@ -18,6 +36,7 @@ def redirect_to_home():
 
 @app.route('/home')
 def home():
+	posts = sorted(pages, key=lambda p: p.meta.get('date'), reverse=True)
 	docnum = len([f for f in os.listdir(docsdir)])
 	subjects = {
 	"biology" : "Topics based on general biology as well as grade 12 biology can be learnt from here.[Grade 12]",
@@ -29,11 +48,20 @@ def home():
 	}
 	subject_count = len(subjects) + len(anadomains)
 	crt_time = datetime.now()
-	return render_template('index.html', time=crt_time, subjects=subjects, subject_count=subject_count, docnum=docnum, anadomains=anadomains)
+	return render_template('index.html', time=crt_time, subjects=subjects, posts=posts, subject_count=subject_count, docnum=docnum, anadomains=anadomains)
+
+@app.route('/ideas/<path:path>')
+def idea_page(path):
+    page = pages.get_or_404(path)
+    return render_template('page.html', page=page)
 
 @app.route('/dochub')
 def dochub():
 	return render_template('documents/index.html')
+
+@app.route('/dochub/<path:filename>')
+def download_file(filename):
+	return send_from_directory('static/documents', filename, as_attachment=True)
 
 @app.route('/subjects/<subject>')
 def route_subject(subject):
