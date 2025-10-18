@@ -7,4 +7,5 @@
 
 - This is a prototype version, or a pre-release version.
 - Find this working @ https://framework-221e-prototype.onrender.com/
+- Latest deployment of prototype includes the perception section also. 
 
